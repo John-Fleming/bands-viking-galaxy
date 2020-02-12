@@ -2,3 +2,8 @@ body {
     background-image: url("./assets/siteBackground.jpg");
     color: white;
 }
+
+#band-logo {
+    max-width: 33%;
+    height: auto;
+}
