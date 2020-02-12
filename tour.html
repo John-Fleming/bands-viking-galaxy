@@ -6,7 +6,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
   <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"
-  integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous" />
+    integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous" />
   <link rel="stylesheet" href="main.css">
   <title>Tour</title>
 </head>
@@ -48,9 +48,26 @@
                 </li>
         </div>
     </div>
-    </nav>
-</header>
-  <h1>Tour</h1>
+  </header>
+
+  <h1 class="text-center">Tour Dates</h1>
+
+  <main class="mx-5 mb-5">
+    <table class="table table-striped table-light">
+      <thead>
+        <tr>
+          <th id="Date" scope="col">Date</th>
+          <th id="Venue" scope="col">Venue</th>
+          <th id="Location" scope="col">Location</th>
+        </tr>
+      </thead>
+      <tbody id="tour-info">
+
+      </tbody>
+    </table>
+  </main>
+
+
   <footer class="fixed-bottom text-center">
     <p>&copy2020</p>
   </footer>
