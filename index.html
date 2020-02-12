@@ -5,23 +5,55 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Viking Galaxy</title>
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"
-        integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
 
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
     <link rel="stylesheet" href="main.css">
 
 </head>
 
 <body>
-    <h1>Welcome to Viking Galaxy</h1>
-    <button type="button" class="btn btn-primary">Primary</button>
+    <header>
+        <div class="container">
+            <nav class="navbar navbar-expand-lg navbar-light bg-light">
+                <a class="navbar-brand" href="./index.html">Viking Galaxy</a>
+                <button class="navbar-toggler" type="button" data-toggle="collapse"
+                    data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false"
+                    aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
 
-    <footer class="fixed-bottom text-center">
-        <p>&copy2020</p>
+                <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                    <ul class="navbar-nav mr-auto">
+                        <li class="nav-item active">
+                            <a class="nav-link" href="./about.html">
+                                About
+                                <span class="sr-only">(current)</span></a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="./discography.html">
+                                Discography
+                                <span class="sr-only"></span></a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="./tour.html">
+                                Tour
+                                <span class="sr-only"></span></a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="./merch.html">
+                                Merch
+                                <span class="sr-only"></span></a>
+                        </li>
+                </div>
+            </nav>
+        </div>
+    </header>
+    <h1 class="text-white">Welcome to Viking Galaxy</h1>
+    <img class="band-photo w-100" src="./assets/homePagePhoto.jpg" alt="A picture of the band Viking Galaxy">
+
+    <footer class="fixed-bottom text-center text-white">
+        <p>&copy 2020</p>
     </footer>
     <script src="./main.js"></script>
-
 </body>
-
-
 </html>
