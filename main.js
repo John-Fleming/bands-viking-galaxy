@@ -106,12 +106,30 @@ const printToDom = (divId, textToPrint) => {
     selectedDiv.innerHTML = textToPrint;
 };
 
+const concertBuilder = (arr) => {
+
+    let domString = '';
+
+    for (let i = 0; i < arr.length; i++) {
+        domString += `<tr>`;
+        domString += `<td>${arr[i].Date}</td>`;
+        domString += `<td>${arr[i].Venue}</td>`;
+        domString += `<td>${arr[i].Location}</td>`;
+        domString += `</tr>`;
+
+
+    }
+
+    printToDom("tour-info", domString);
+}
+
 const events = () => {
 
 }
 
 const init = () => {
     events();
+    concertBuilder(concerts);
 }
 
 init();
