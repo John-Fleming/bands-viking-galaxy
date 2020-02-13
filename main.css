@@ -23,3 +23,8 @@ body {
     columns: 2;
     padding: 5px 35% 0;
 }
+
+.available {
+    color: #8b0000;
+    font-weight: bold;
+}
