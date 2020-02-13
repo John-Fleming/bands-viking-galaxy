@@ -203,8 +203,15 @@ const events = () => {
 
 const init = () => {
     events();
-    albumBuilder(discography);
-    concertBuilder(concerts);
+    if (window.location.pathname === '/discography.html') {
+        albumBuilder(discography);
+    } else if (window.location.pathname === '/tour.html') {
+            concertBuilder(concerts);
+    } else if (window.location.pathname === '/about.html') {
+                vikingBuilder(vikings);
+    } else if (window.location.pathname === '/merch.html') {
+                    merchBuilder(vikingMerch);
+    }
 }
 
 init();
