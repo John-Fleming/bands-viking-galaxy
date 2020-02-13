@@ -1,31 +1,33 @@
-const discography = [
-    {
-    albumArt: "./assets/greatestHits.png",
-    albumName: "Viking Galaxy Greatest Hits",
-    yearReleased: 2015,
-    tracklist: ['Hall of the Slain', 'Call of the Valkyrie', 'Sickle of Hate', 'Lost Forver', 'Space Chariot', 'Final Frontier', 'Contact', 'Odin on Mars', 'Valhalla Has Fallen', 'Black Hole']
+const discography = [{
+        albumArt: "./assets/greatestHits.png",
+        albumName: "Viking Galaxy Greatest Hits",
+        yearReleased: 2015,
+        tracklist: ['Hall of the Slain', 'Call of the Valkyrie', 'Sickle of Hate', 'Lost Forver', 'Space Chariot', 'Final Frontier', 'Contact', 'Odin on Mars', 'Valhalla Has Fallen', 'Black Hole']
     },
     {
-    albumArt: "./assets/firstContact.png",
-    albumName: "First Contact",
-    yearReleased: 2000,
-    tracklist: ['Contact', 'Lost Forever', 'Call of the Valkyrie', 'Ales in Space', 'A Song for Home', 'Lost Control', 'Asgard in Ruins', 'Viking Funeral', 'Spaceship for Two', 'Metal is for Vikings']
+        albumArt: "./assets/firstContact.png",
+        albumName: "First Contact",
+        yearReleased: 2000,
+        tracklist: ['Contact', 'Lost Forever', 'Call of the Valkyrie', 'Ales in Space', 'A Song for Home', 'Lost Control', 'Asgard in Ruins', 'Viking Funeral', 'Spaceship for Two', 'Metal is for Vikings']
     },
     {
-    albumArt: "./assets/metalThor.png",
-    albumName: "Metal Thor",
-    yearReleased: 2005,
-    tracklist: ['Hall of the Slain', 'Final Frontier', 'Odin on Mars', 'Loki Sucks', 'Thor\'s Revenge', 'My Horse is Metal', 'Mjolnir', 'Space Lightning', 'Your Beard', 'Crossing Swords']
+        albumArt: "./assets/metalThor.png",
+        albumName: "Metal Thor",
+        yearReleased: 2005,
+        tracklist: ['Hall of the Slain', 'Final Frontier', 'Odin on Mars', 'Loki Sucks', 'Thor\'s Revenge', 'My Horse is Metal', 'Mjolnir', 'Space Lightning', 'Your Beard', 'Crossing Swords']
     },
     {
-    albumArt: "./assets/spaceNorseman.png",
-    albumName: "Space Norseman",
-    yearReleased: 2010,
-    tracklist: ['Black Hole', 'Sickle of Hate', 'Space Chariot', 'Valhalla Has Fallen', 'Metal on the Fjord', 'Hall of the Space Legends', 'Night of the Battle', 'Dark Angel', 'The Last Asteroid', 'Mead']
+        albumArt: "./assets/spaceNorseman.png",
+        albumName: "Space Norseman",
+        yearReleased: 2010,
+        tracklist: ['Black Hole', 'Sickle of Hate', 'Space Chariot', 'Valhalla Has Fallen', 'Metal on the Fjord', 'Hall of the Space Legends', 'Night of the Battle', 'Dark Angel', 'The Last Asteroid', 'Mead']
     },
-    ];
 
-    const concerts = [{
+];
+
+
+
+const concerts = [{
         Date: "1/05/2019",
         Venue: "Mad Bomber",
         Location: "Germany",
@@ -172,76 +174,110 @@ const vikingMerch = [
       isAvailable: '   Yes'
     }
   ];
+const vikings = [{
+        image: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSWhZ4DGyHhSC67jyT_EcUe9JU72y7EKLYQZsGdJqLm8yvj7Npfeg&s",
+        name: "Ron Eriksen",
+        instrument: "Guitar & Vocals",
+        qoute: "The wobbling guitars through the chorus are simply divine."
+    },
+    {
+        image: "https://2.bp.blogspot.com/-jdgJcTFCumE/TboTsnwAjII/AAAAAAAABVY/rkViKft9rTI/s1600/vikinggalaxy.pk++%25289%2529.jpg",
+        name: "Matt Jordan",
+        instrument: "Drums",
+        qoute: "My hi-fi couldn't deal with the awesomeness and exploded."
+    },
+    {
+        image: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTk5Ov-pVW1XDU6yQFD-HKPX88GBEuRJPS2-XlwXNjIRnRm2VhR&s",
+        name: "Mike Gonzalez",
+        instrument: "Bass",
+        qoute: "After hearing this album I have applied to both Nasa and the Nordic Viking Federation"
+    },
+    {
+        image: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcS8xrGiagZXkmUwSNKGdgfU21c5Pz8uLO0x_thZEqc1qkWalXgA&s",
+        name: "Justin Zych",
+        instrument: "Guitar",
+        qoute: "In the end I had to use a nuclear fusion-powered device I contructed out of Titanium in order to deal with the epicness contained within these 10 tracks."
+    },
+]
 
 const printToDom = (divId, textToPrint) => {
     let selectedDiv = document.getElementById(divId);
     selectedDiv.innerHTML = textToPrint;
 };
 
+
 const albumBuilder = (arr) => {
     let domString = '';
     for (let i = 0; i < arr.length; i++) {
         if (arr[i] === arr[0]) {
             domString += `<div class="row carousel-item container-fluid active">`;
-            domString +=    `<div class="album-content text-center col-md-12">`;
-            domString +=            `<h2 class="album-title">${arr[i].albumName}</h2>`;
-            domString +=            `<h3 class="album-year">${arr[i].yearReleased}</h3>`;
-            domString +=        `<div class="album-artwork">`;
-            domString +=            `<img src="${arr[i].albumArt}" alt="picture of ${arr[i].albumName} album artwork">`;
-            domString +=        `</div>`;
-            domString +=            `<ol class="album-tracklist">`;
-            domString +=                `<li>${arr[i].tracklist[0]}</li>`;
-            domString +=                `<li>${arr[i].tracklist[1]}</li>`;
-            domString +=                `<li>${arr[i].tracklist[2]}</li>`;
-            domString +=                `<li>${arr[i].tracklist[3]}</li>`;
-            domString +=                `<li>${arr[i].tracklist[4]}</li>`;
-            domString +=                `<li>${arr[i].tracklist[5]}</li>`;
-            domString +=                `<li>${arr[i].tracklist[6]}</li>`;
-            domString +=                `<li>${arr[i].tracklist[7]}</li>`;
-            domString +=                `<li>${arr[i].tracklist[8]}</li>`;
-            domString +=                `<li>${arr[i].tracklist[9]}</li>`;
-            domString +=            `</ol>`;
-            domString +=   `</div>`;
+            domString += `<div class="album-content text-center col-md-12">`;
+            domString += `<h2 class="album-title">${arr[i].albumName}</h2>`;
+            domString += `<h3 class="album-year">${arr[i].yearReleased}</h3>`;
+            domString += `<div class="album-artwork">`;
+            domString += `<img src="${arr[i].albumArt}" alt="picture of ${arr[i].albumName} album artwork">`;
+            domString += `</div>`;
+            domString += `<ol class="album-tracklist">`;
+            domString += `<li>${arr[i].tracklist[0]}</li>`;
+            domString += `<li>${arr[i].tracklist[1]}</li>`;
+            domString += `<li>${arr[i].tracklist[2]}</li>`;
+            domString += `<li>${arr[i].tracklist[3]}</li>`;
+            domString += `<li>${arr[i].tracklist[4]}</li>`;
+            domString += `<li>${arr[i].tracklist[5]}</li>`;
+            domString += `<li>${arr[i].tracklist[6]}</li>`;
+            domString += `<li>${arr[i].tracklist[7]}</li>`;
+            domString += `<li>${arr[i].tracklist[8]}</li>`;
+            domString += `<li>${arr[i].tracklist[9]}</li>`;
+            domString += `</ol>`;
+            domString += `</div>`;
             domString += `</div>`;
         } else {
             domString += `<div class="row carousel-item container-fluid">`;
-            domString +=    `<div class="album-content text-center col-md-12">`;
-            domString +=            `<h2 class="album-title">${arr[i].albumName}</h2>`;
-            domString +=            `<h3 class="album-year">${arr[i].yearReleased}</h3>`;
-            domString +=        `<div class="album-artwork">`;
-            domString +=            `<img src="${arr[i].albumArt}" alt="picture of ${arr[i].albumName} album artwork">`;
-            domString +=        `</div>`;
-            domString +=            `<ol class="album-tracklist">`;
-            domString +=                `<li>${arr[i].tracklist[0]}</li>`;
-            domString +=                `<li>${arr[i].tracklist[1]}</li>`;
-            domString +=                `<li>${arr[i].tracklist[2]}</li>`;
-            domString +=                `<li>${arr[i].tracklist[3]}</li>`;
-            domString +=                `<li>${arr[i].tracklist[4]}</li>`;
-            domString +=                `<li>${arr[i].tracklist[5]}</li>`;
-            domString +=                `<li>${arr[i].tracklist[6]}</li>`;
-            domString +=                `<li>${arr[i].tracklist[7]}</li>`;
-            domString +=                `<li>${arr[i].tracklist[8]}</li>`;
-            domString +=                `<li>${arr[i].tracklist[9]}</li>`;
-            domString +=            `</ol>`;
-            domString +=   `</div>`;
+            domString += `<div class="album-content text-center col-md-12">`;
+            domString += `<h2 class="album-title">${arr[i].albumName}</h2>`;
+            domString += `<h3 class="album-year">${arr[i].yearReleased}</h3>`;
+            domString += `<div class="album-artwork">`;
+            domString += `<img src="${arr[i].albumArt}" alt="picture of ${arr[i].albumName} album artwork">`;
+            domString += `</div>`;
+            domString += `<ol class="album-tracklist">`;
+            domString += `<li>${arr[i].tracklist[0]}</li>`;
+            domString += `<li>${arr[i].tracklist[1]}</li>`;
+            domString += `<li>${arr[i].tracklist[2]}</li>`;
+            domString += `<li>${arr[i].tracklist[3]}</li>`;
+            domString += `<li>${arr[i].tracklist[4]}</li>`;
+            domString += `<li>${arr[i].tracklist[5]}</li>`;
+            domString += `<li>${arr[i].tracklist[6]}</li>`;
+            domString += `<li>${arr[i].tracklist[7]}</li>`;
+            domString += `<li>${arr[i].tracklist[8]}</li>`;
+            domString += `<li>${arr[i].tracklist[9]}</li>`;
+            domString += `</ol>`;
+            domString += `</div>`;
             domString += `</div>`;
         };
     }
     printToDom('albums', domString);
 }
 
+
+
+
+//function that build the inners of the bootstrap table-SZ
 const concertBuilder = (arr) => {
     let domString = '';
+    ticketIdCreator();
     for (let i = 0; i < arr.length; i++) {
         domString += `<tr>`;
         domString += `<td>${arr[i].Date}</td>`;
         domString += `<td>${arr[i].Venue}</td>`;
         domString += `<td>${arr[i].Location}</td>`;
+        domString += `<td><button id=${arr[i].Id}>Tickets</button></td>`;
         domString += `</tr>`;
     }
     printToDom("tour-info", domString);
-}
 
+    ticketButtonEvents(arr);
+}
+// function that populates merch.html with bootstrap cards
 const merchBuilder = (arr) => {
     let domString = '';
     for (let i = 0; i < arr.length; i++) {
@@ -268,21 +304,65 @@ const merchBuilder = (arr) => {
     printToDom("merch-card", domString);
 }
 
+//function that creates tickets id's-SZ
+const ticketIdCreator = () => {
+    for (let i = 0; i < concerts.length; i++) {
+        concerts[i].Id = i.toString();
+    }
+    return concerts;
+}
+
+//functions that creates addeventlisteners for each ticket button id-SZ
+const ticketButtonEvents = (arr) => {
+    for (let i = 0; i < arr.length; i++) {
+
+        document.getElementById(arr[i].Id).addEventListener('click', purchaseTickets);
+    }
+}
+
+//Alert that is called when you click the ticket button-SZ
+const purchaseTickets = () => {
+    alert('Congrats! Your tickets have been purchased!');
+}
+
+
+
+vikingBuilder = () => {
+    let domString = "";
+
+    for (let i = 0; i < vikings.length; i++) {
+        domString += `<div class="card col-sm-4 text-secondary m-2 mb-5" style="width: 18rem;">`;
+        domString += `<img src="${vikings[i].image}" class="card-img-top" alt="..."></img>`
+        domString += `<div class="card-body">`;
+        domString += `<h2 class="card-title text-center">${vikings[i].name}</h2>`;
+        domString += `<h2 class="text-center">${vikings[i].instrument}</h2>`;
+        domString += `<q class="text-center font-italic">${vikings[i].qoute}</q>`;
+        domString += `</div>`;
+        domString += `</div>`;
+    }
+    printToDom("band-members", domString)
+}
+
+
+
+
 const events = () => {
 
 }
 
 const init = () => {
     events();
+
     if (window.location.pathname === '/discography.html') {
         albumBuilder(discography);
     } else if (window.location.pathname === '/tour.html') {
-            concertBuilder(concerts);
+        concertBuilder(concerts);
     } else if (window.location.pathname === '/about.html') {
-                vikingBuilder(vikings);
+        vikingBuilder(vikings);
     } else if (window.location.pathname === '/merch.html') {
-                    merchBuilder(vikingMerch);
+        merchBuilder(vikingMerch);
     }
+
 }
 
 init();
