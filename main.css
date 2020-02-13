@@ -10,21 +10,6 @@ body {
 
 /* Discography Page */
 
-.album-artwork {
-    max-width: 600px;
-    margin: 0 auto;
-  }
-
 .album-artwork img {
-    width: 100%;
-}
-
-.album-tracklist {
-    columns: 2;
-    padding: 5px 35% 0;
-}
-
-.available {
-    color: #8b0000;
-    font-weight: bold;
+    max-height: 545px;
 }
