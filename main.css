@@ -2,3 +2,24 @@ body {
     background-image: url("./assets/siteBackground.jpg");
     color: white;
 }
+
+#band-logo {
+    max-width: 33%;
+    height: auto;
+}
+
+/* Discography Page */
+
+.album-artwork {
+    max-width: 600px;
+    margin: 0 auto;
+  }
+
+.album-artwork img {
+    width: 100%;
+}
+
+.album-tracklist {
+    columns: 2;
+    padding: 5px 35% 0;
+}
