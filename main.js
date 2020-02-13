@@ -130,6 +130,50 @@ const concerts = [{
 
 ]
 
+const vikingMerch = [
+    {
+      imageURL: "./assets/Viking Galaxy Hat.png",
+      item: "Viking Galaxy Hat",
+      price: 25.99,
+      isAvailable: '   Yes'
+    },
+    {
+      imageURL: "./assets/vg-shirt.png",
+      item: "Viking Galaxy Shirt",
+      price: 10.99,
+      isAvailable: '   Yes'
+    },
+    {
+      imageURL: "./assets/Viking Galaxy Sticker.png",
+      item: "Viking Galaxy Sticker Pack",
+      price: 12.99,
+      isAvailable:  '   Yes'
+    },
+    {
+      imageURL: "./assets/Poster.png",
+      item: "Viking Galaxy Poster",
+      price: 8.99,
+      isAvailable: '   More on the way'
+    },
+    {
+      imageURL: "./assets/Coffee Mug.png",
+      item: "Viking Galaxy Coffee Mug",
+      price: 11.99,
+      isAvailable: '   More on the way'
+    },
+    {
+      imageURL: "./assets/Tote.png",
+      item: "Viking Galaxy Tote Bag",
+      price: 5.99,
+      isAvailable: '   Yes'
+    },
+    {
+      imageURL: "./assets/Hoodie.png",
+      item: "Viking Galaxy Hoodie",
+      price: 45.99,
+      isAvailable: '   Yes'
+    }
+  ];
 const vikings = [{
         image: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSWhZ4DGyHhSC67jyT_EcUe9JU72y7EKLYQZsGdJqLm8yvj7Npfeg&s",
         name: "Ron Eriksen",
@@ -232,6 +276,32 @@ const concertBuilder = (arr) => {
     printToDom("tour-info", domString);
 
     ticketButtonEvents(arr);
+}
+// function that populates merch.html with bootstrap cards
+const merchBuilder = (arr) => {
+    let domString = '';
+    for (let i = 0; i < arr.length; i++) {
+        if (arr[i].isAvailable === '   Yes') {
+            domString += `<div class="card bg-dark col-3 pt-4 pb-4 m-1 rounded-0" style="width: 18rem;">`
+            domString += `<img src="${arr[i].imageURL}" class="card-img-top" alt="${arr[i].item}">`
+            domString += `<div class="card-body"></div>`
+            domString += `<h5 class="card-title">${arr[i].item}</h5>`
+            domString += `<p>$${arr[i].price}</p>`
+            domString += `<p>In Stock: <span class="text-success">${arr[i].isAvailable}</span></p>`
+            domString += `</div>`;
+        } else {
+            domString += `<div class="card bg-dark col-3 pt-4 pb-4 m-1 rounded-0" style="width: 18rem;">`
+            domString += `<img src="${arr[i].imageURL}" class="card-img-top" alt="${arr[i].item}">`
+            domString += `<div class="card-body"></div>`
+            domString += `<h5 class="card-title">${arr[i].item}</h5>`
+            domString += `<p>$${arr[i].price}</p>`
+            domString += `<p class="mb-5">In Stock: <span class="text-danger">${arr[i].isAvailable}</span></p>`
+            domString += `<a href="#" class="btn btn-warning font-weight-bold text-dark">Let me know when they are back!</a>` 
+            domString += `</div>`;
+
+        }
+    }
+    printToDom("merch-card", domString);
 }
 
 //function that creates tickets id's-SZ
