@@ -321,8 +321,9 @@ const ticketButtonEvents = (arr) => {
 }
 
 //Alert that is called when you click the ticket button-SZ
-const purchaseTickets = () => {
-    alert('Congrats! Your tickets have been purchased!');
+const purchaseTickets = (e) => {
+    let ticketId = e.target.id;
+    alert(`Congrats! You bought your tickets for the ${concerts[ticketId].Venue} showing located in ${concerts[ticketId].Location} on ${concerts[ticketId].Date}.`);
 }
 
 
