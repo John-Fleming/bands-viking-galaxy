@@ -101,11 +101,17 @@ const concerts = [{
 
 ]
 
+const vikings = [   {name: "Bob", instrument: "Guitar", qoute: "The wobbling guitars through the chorus are simply divine."}, 
+                    {name: "Joe", instrument: "Drums", qoute: "My hi-fi couldn't deal with the awesomeness and exploded."},
+                    {name: "John", instrument: "Bass", qoute: "After hearing this album I have applied to both Nasa and the Nordic Viking Federation"},
+                    {name: "Billy", instrument: "Vocals", qoute: "My hi-fi couldn't deal with the awesomeness and In the end I had to use a nuclear fusion-powered device I contructed out of Titanium in order to deal with the epicness contained within these 10 tracks."}, ]
+
 const printToDom = (divId, textToPrint) => {
     let selectedDiv = document.getElementById(divId);
     selectedDiv.innerHTML = textToPrint;
 };
 
+/*
 const concertBuilder = (arr) => {
 
     let domString = '';
@@ -122,6 +128,26 @@ const concertBuilder = (arr) => {
 
     printToDom("tour-info", domString);
 }
+*/
+
+vikingBuilder = () =>{
+    let domString = "";
+
+    for(let i = 0; i < vikings.length; i++) {
+        domString += `<div class="card" style="width: 18rem;">`;
+            domString += `<div class="card-body">`;
+                domString += ``;
+                    domString += `<h2 class="card-title">${vikings[i].name}</h2>`;
+                    domString += `<h2>${vikings[i].instrument}</h2>`;
+                    domString += `<q>${vikings[i].qoute}</q>`;
+                domString += `</div>`;
+            domString += `</div>`;
+        domString += `</div>`;
+    }
+    printToDom("band-members", domString)
+}
+
+
 
 const events = () => {
 
@@ -129,7 +155,8 @@ const events = () => {
 
 const init = () => {
     events();
-    concertBuilder(concerts);
+    vikingBuilder()
+    //concertBuilder(concerts);
 }
 
 init();
