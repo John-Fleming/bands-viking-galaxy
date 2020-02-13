@@ -3,7 +3,13 @@ body {
     color: white;
 }
 
+#band-logo {
+    max-width: 33%;
+    height: auto;
+}
+
 /* Discography Page */
+
 .album-artwork {
     max-width: 600px;
     margin: 0 auto;
