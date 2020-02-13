@@ -22,7 +22,10 @@ const discography = [{
         yearReleased: 2010,
         tracklist: ['Black Hole', 'Sickle of Hate', 'Space Chariot', 'Valhalla Has Fallen', 'Metal on the Fjord', 'Hall of the Space Legends', 'Night of the Battle', 'Dark Angel', 'The Last Asteroid', 'Mead']
     },
+
 ];
+
+
 
 const concerts = [{
         Date: "1/05/2019",
@@ -127,10 +130,37 @@ const concerts = [{
 
 ]
 
+const vikings = [{
+        image: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSWhZ4DGyHhSC67jyT_EcUe9JU72y7EKLYQZsGdJqLm8yvj7Npfeg&s",
+        name: "Ron Eriksen",
+        instrument: "Guitar & Vocals",
+        qoute: "The wobbling guitars through the chorus are simply divine."
+    },
+    {
+        image: "https://2.bp.blogspot.com/-jdgJcTFCumE/TboTsnwAjII/AAAAAAAABVY/rkViKft9rTI/s1600/vikinggalaxy.pk++%25289%2529.jpg",
+        name: "Matt Jordan",
+        instrument: "Drums",
+        qoute: "My hi-fi couldn't deal with the awesomeness and exploded."
+    },
+    {
+        image: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTk5Ov-pVW1XDU6yQFD-HKPX88GBEuRJPS2-XlwXNjIRnRm2VhR&s",
+        name: "Mike Gonzalez",
+        instrument: "Bass",
+        qoute: "After hearing this album I have applied to both Nasa and the Nordic Viking Federation"
+    },
+    {
+        image: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcS8xrGiagZXkmUwSNKGdgfU21c5Pz8uLO0x_thZEqc1qkWalXgA&s",
+        name: "Justin Zych",
+        instrument: "Guitar",
+        qoute: "In the end I had to use a nuclear fusion-powered device I contructed out of Titanium in order to deal with the epicness contained within these 10 tracks."
+    },
+]
+
 const printToDom = (divId, textToPrint) => {
     let selectedDiv = document.getElementById(divId);
     selectedDiv.innerHTML = textToPrint;
 };
+
 
 const albumBuilder = (arr) => {
     let domString = '';
@@ -226,12 +256,33 @@ const purchaseTickets = () => {
 }
 
 
+
+vikingBuilder = () => {
+    let domString = "";
+
+    for (let i = 0; i < vikings.length; i++) {
+        domString += `<div class="card col-sm-4 text-secondary m-2 mb-5" style="width: 18rem;">`;
+        domString += `<img src="${vikings[i].image}" class="card-img-top" alt="..."></img>`
+        domString += `<div class="card-body">`;
+        domString += `<h2 class="card-title text-center">${vikings[i].name}</h2>`;
+        domString += `<h2 class="text-center">${vikings[i].instrument}</h2>`;
+        domString += `<q class="text-center font-italic">${vikings[i].qoute}</q>`;
+        domString += `</div>`;
+        domString += `</div>`;
+    }
+    printToDom("band-members", domString)
+}
+
+
+
+
 const events = () => {
 
 }
 
 const init = () => {
     events();
+
     if (window.location.pathname === '/discography.html') {
         albumBuilder(discography);
     } else if (window.location.pathname === '/tour.html') {
@@ -241,6 +292,7 @@ const init = () => {
     } else if (window.location.pathname === '/merch.html') {
         merchBuilder(vikingMerch);
     }
+
 }
 
 init();
