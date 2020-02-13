@@ -22,9 +22,7 @@ const discography = [{
         yearReleased: 2010,
         tracklist: ['Black Hole', 'Sickle of Hate', 'Space Chariot', 'Valhalla Has Fallen', 'Metal on the Fjord', 'Hall of the Space Legends', 'Night of the Battle', 'Dark Angel', 'The Last Asteroid', 'Mead']
     },
-    ];
-
-
+];
 
 const concerts = [{
         Date: "1/05/2019",
@@ -128,10 +126,76 @@ const concerts = [{
     },
 ]
 
-const vikings = [   {image: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSWhZ4DGyHhSC67jyT_EcUe9JU72y7EKLYQZsGdJqLm8yvj7Npfeg&s", name: "Ron Eriksen", instrument: "Guitar & Vocals", qoute: "The wobbling guitars through the chorus are simply divine."}, 
-                    {image: "https://2.bp.blogspot.com/-jdgJcTFCumE/TboTsnwAjII/AAAAAAAABVY/rkViKft9rTI/s1600/vikinggalaxy.pk++%25289%2529.jpg", name: "Matt Jordan", instrument: "Drums", qoute: "My hi-fi couldn't deal with the awesomeness and exploded."},
-                    {image: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTk5Ov-pVW1XDU6yQFD-HKPX88GBEuRJPS2-XlwXNjIRnRm2VhR&s", name: "Mike Gonzalez", instrument: "Bass", qoute: "After hearing this album I have applied to both Nasa and the Nordic Viking Federation"},
-                    {image: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcS8xrGiagZXkmUwSNKGdgfU21c5Pz8uLO0x_thZEqc1qkWalXgA&s", name: "Justin Zych", instrument: "Guitar", qoute: "In the end I had to use a nuclear fusion-powered device I contructed out of Titanium in order to deal with the epicness contained within these 10 tracks."}, ]
+const vikingMerch = [
+    {
+      imageURL: "./assets/Viking Galaxy Hat.png",
+      item: "Viking Galaxy Hat",
+      price: 25.99,
+      isAvailable: '   Yes'
+    },
+    {
+      imageURL: "./assets/vg-shirt.png",
+      item: "Viking Galaxy Shirt",
+      price: 10.99,
+      isAvailable: '   Yes'
+    },
+    {
+      imageURL: "./assets/Viking Galaxy Sticker.png",
+      item: "Viking Galaxy Sticker Pack",
+      price: 12.99,
+      isAvailable:  '   Yes'
+    },
+    {
+      imageURL: "./assets/Poster.png",
+      item: "Viking Galaxy Poster",
+      price: 8.99,
+      isAvailable: '   More on the way'
+    },
+    {
+      imageURL: "./assets/Coffee Mug.png",
+      item: "Viking Galaxy Coffee Mug",
+      price: 11.99,
+      isAvailable: '   More on the way'
+    },
+    {
+      imageURL: "./assets/Tote.png",
+      item: "Viking Galaxy Tote Bag",
+      price: 5.99,
+      isAvailable: '   Yes'
+    },
+    {
+      imageURL: "./assets/Hoodie.png",
+      item: "Viking Galaxy Hoodie",
+      price: 45.99,
+      isAvailable: '   Yes'
+    }
+  ];
+  
+const vikings = [{
+        image: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSWhZ4DGyHhSC67jyT_EcUe9JU72y7EKLYQZsGdJqLm8yvj7Npfeg&s",
+        name: "Ron Eriksen",
+        instrument: "Guitar & Vocals",
+        qoute: "The wobbling guitars through the chorus are simply divine."
+    },
+    {
+        image: "https://2.bp.blogspot.com/-jdgJcTFCumE/TboTsnwAjII/AAAAAAAABVY/rkViKft9rTI/s1600/vikinggalaxy.pk++%25289%2529.jpg",
+        name: "Matt Jordan",
+        instrument: "Drums",
+        qoute: "My hi-fi couldn't deal with the awesomeness and exploded."
+    },
+    {
+        image: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTk5Ov-pVW1XDU6yQFD-HKPX88GBEuRJPS2-XlwXNjIRnRm2VhR&s",
+        name: "Mike Gonzalez",
+        instrument: "Bass",
+        qoute: "After hearing this album I have applied to both Nasa and the Nordic Viking Federation"
+    },
+    {
+        image: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcS8xrGiagZXkmUwSNKGdgfU21c5Pz8uLO0x_thZEqc1qkWalXgA&s",
+        name: "Justin Zych",
+        instrument: "Guitar",
+        qoute: "In the end I had to use a nuclear fusion-powered device I contructed out of Titanium in order to deal with the epicness contained within these 10 tracks."
+    },
+]
 
 const printToDom = (divId, textToPrint) => {
     let selectedDiv = document.getElementById(divId);
@@ -203,9 +267,9 @@ const albumBuilder = (arr) => {
     printToDom('albums', domString);
 }
 
+
 const concertBuilder = (arr) => {
     let domString = '';
-    //creates tickets button id (was not it card to create)
     ticketIdCreator();
     for (let i = 0; i < arr.length; i++) {
         domString += `<tr>`;
@@ -217,15 +281,37 @@ const concertBuilder = (arr) => {
     }
     printToDom("tour-info", domString);
 
-    //Needs its own function (creates a addeventlistener for each function)
-    for (let i = 0; i < arr.length; i++) {
-
-        document.getElementById(arr[i].Id).addEventListener('click', purchaseTickets);
-    }
-
+    ticketButtonEvents(arr);
 }
 
-//function that creates tickets id's (was not in card to create)
+// function that populates merch.html with bootstrap cards
+const merchBuilder = (arr) => {
+    let domString = '';
+    for (let i = 0; i < arr.length; i++) {
+        if (arr[i].isAvailable === '   Yes') {
+            domString += `<div class="card bg-dark col-3 pt-4 pb-4 m-1 rounded-0" style="width: 18rem;">`
+            domString += `<img src="${arr[i].imageURL}" class="card-img-top" alt="${arr[i].item}">`
+            domString += `<div class="card-body"></div>`
+            domString += `<h5 class="card-title">${arr[i].item}</h5>`
+            domString += `<p>$${arr[i].price}</p>`
+            domString += `<p>In Stock: <span class="text-success">${arr[i].isAvailable}</span></p>`
+            domString += `</div>`;
+        } else {
+            domString += `<div class="card bg-dark col-3 pt-4 pb-4 m-1 rounded-0" style="width: 18rem;">`
+            domString += `<img src="${arr[i].imageURL}" class="card-img-top" alt="${arr[i].item}">`
+            domString += `<div class="card-body"></div>`
+            domString += `<h5 class="card-title">${arr[i].item}</h5>`
+            domString += `<p>$${arr[i].price}</p>`
+            domString += `<p class="mb-5">In Stock: <span class="text-danger">${arr[i].isAvailable}</span></p>`
+            domString += `<a href="#" class="btn btn-warning font-weight-bold text-dark">Let me know when they are back!</a>` 
+            domString += `</div>`;
+
+        }
+    }
+    printToDom("merch-card", domString);
+}
+
+//function that creates tickets id's-SZ
 const ticketIdCreator = () => {
     for (let i = 0; i < concerts.length; i++) {
         concerts[i].Id = i.toString();
@@ -233,16 +319,24 @@ const ticketIdCreator = () => {
     return concerts;
 }
 
-//Alert that is called when you click the ticket button
-const purchaseTickets = () => {
-    alert('Congrats! Your tickets have been purchased!');
+//functions that creates addeventlisteners for each ticket button id-SZ
+const ticketButtonEvents = (arr) => {
+    for (let i = 0; i < arr.length; i++) {
+
+        document.getElementById(arr[i].Id).addEventListener('click', purchaseTickets);
+    }
 }
 
+//Alert that is called when you click the ticket button-SZ
+const purchaseTickets = (e) => {
+    let ticketId = e.target.id;
+    alert(`Congrats! You bought your tickets for the ${concerts[ticketId].Venue} showing located in ${concerts[ticketId].Location} on ${concerts[ticketId].Date}.`);
+}
 
-vikingBuilder = () =>{
+vikingBuilder = () => {
     let domString = "";
 
-    for(let i = 0; i < vikings.length; i++) {
+    for (let i = 0; i < vikings.length; i++) {
         domString += `<div class="card col-sm-4 text-secondary m-2 mb-5" style="width: 18rem;">`;
             domString += `<img src="${vikings[i].image}" class="card-img-top" alt="a picture of ${vikings[i].name}"></img>`
                 domString += `<div class="card-body">`;
