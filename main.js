@@ -110,18 +110,43 @@ const concertBuilder = (arr) => {
 
     let domString = '';
 
+    //creates tickets button id (was not it card to create)
+    ticketIdCreator();
+
     for (let i = 0; i < arr.length; i++) {
         domString += `<tr>`;
         domString += `<td>${arr[i].Date}</td>`;
         domString += `<td>${arr[i].Venue}</td>`;
         domString += `<td>${arr[i].Location}</td>`;
+        domString += `<td><button id=${arr[i].Id}>Tickets</button></td>`;
         domString += `</tr>`;
-
-
     }
 
+
+
     printToDom("tour-info", domString);
+
+    //Needs its own function (creates a addeventlistener for each function)
+    for (let i = 0; i < arr.length; i++) {
+
+        document.getElementById(arr[i].Id).addEventListener('click', purchaseTickets);
+    }
+
 }
+
+//function that creates tickets id's (was not in card to create)
+const ticketIdCreator = () => {
+    for (let i = 0; i < concerts.length; i++) {
+        concerts[i].Id = i.toString();
+    }
+    return concerts;
+}
+
+//Alert that is called when you click the ticket button
+const purchaseTickets = () => {
+    alert('Congrats! Your tickets have been purchased!');
+}
+
 
 const events = () => {
 
