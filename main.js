@@ -187,10 +187,9 @@ const albumBuilder = (arr) => {
 
 
 
-
+//function that build the inners of the bootstrap table-SZ
 const concertBuilder = (arr) => {
     let domString = '';
-    //creates tickets button id (was not it card to create)
     ticketIdCreator();
     for (let i = 0; i < arr.length; i++) {
         domString += `<tr>`;
@@ -202,15 +201,10 @@ const concertBuilder = (arr) => {
     }
     printToDom("tour-info", domString);
 
-    //Needs its own function (creates a addeventlistener for each function)
-    for (let i = 0; i < arr.length; i++) {
-
-        document.getElementById(arr[i].Id).addEventListener('click', purchaseTickets);
-    }
-
+    ticketButtonEvents(arr);
 }
 
-//function that creates tickets id's (was not in card to create)
+//function that creates tickets id's-SZ
 const ticketIdCreator = () => {
     for (let i = 0; i < concerts.length; i++) {
         concerts[i].Id = i.toString();
@@ -218,7 +212,15 @@ const ticketIdCreator = () => {
     return concerts;
 }
 
-//Alert that is called when you click the ticket button
+//functions that creates addeventlisteners for each ticket button id-SZ
+const ticketButtonEvents = (arr) => {
+    for (let i = 0; i < arr.length; i++) {
+
+        document.getElementById(arr[i].Id).addEventListener('click', purchaseTickets);
+    }
+}
+
+//Alert that is called when you click the ticket button-SZ
 const purchaseTickets = () => {
     alert('Congrats! Your tickets have been purchased!');
 }
