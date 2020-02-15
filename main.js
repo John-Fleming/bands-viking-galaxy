@@ -209,11 +209,11 @@ const albumBuilder = (arr) => {
             domString += `<div class="row carousel-item container-fluid active">`;
             domString += `<div class="album-content text-center col-md-12">`;
             domString += `<h2 class="album-title">${arr[i].albumName}</h2>`;
-            domString += `<h3 class="album-year mb-3">${arr[i].yearReleased}</h3>`;
+            domString += `<h3 class="album-year mb-4">${arr[i].yearReleased}</h3>`;
             domString += `<div class="album-artwork">`;
             domString += `<img class="img-fluid w-50" src="${arr[i].albumArt}" alt="picture of ${arr[i].albumName} album artwork">`;
             domString += `</div>`;
-            domString += `<div class="tracklist-container mt-3">`;
+            domString += `<div class="tracklist-container mt-4">`;
             domString += `<div class="row">`;
             domString += `<div class="tracks-left col-md-2 ml-auto">`;
             domString += `<p>1. ${arr[i].tracklist[0]}</p>`;
@@ -237,11 +237,11 @@ const albumBuilder = (arr) => {
             domString += `<div class="row carousel-item container-fluid">`;
             domString += `<div class="album-content text-center col-md-12">`;
             domString += `<h2 class="album-title">${arr[i].albumName}</h2>`;
-            domString += `<h3 class="album-year mb-3">${arr[i].yearReleased}</h3>`;
+            domString += `<h3 class="album-year mb-4">${arr[i].yearReleased}</h3>`;
             domString += `<div class="album-artwork">`;
             domString += `<img class="img-fluid w-50" src="${arr[i].albumArt}" alt="picture of ${arr[i].albumName} album artwork">`;
             domString += `</div>`;
-            domString += `<div class="tracklist-container mt-3">`;
+            domString += `<div class="tracklist-container mt-4">`;
             domString += `<div class="row">`;
             domString += `<div class="tracks-left col-md-2 ml-auto">`;
             domString += `<p>1. ${arr[i].tracklist[0]}</p>`;
