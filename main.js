@@ -192,7 +192,7 @@ const vikings = [{
         image: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcS8xrGiagZXkmUwSNKGdgfU21c5Pz8uLO0x_thZEqc1qkWalXgA&s",
         name: "Justin Zych",
         instrument: "Guitar",
-        qoute: "In the end I had to use a nuclear fusion-powered device I contructed out of Titanium in order to deal with the epicness contained within these 10 tracks."
+        qoute: "In the end I had to use a nuclear fusion-powered device I contructed out of titanium to deal with the epicness."
     },
 ]
 
@@ -209,11 +209,11 @@ const albumBuilder = (arr) => {
             domString += `<div class="row carousel-item container-fluid active">`;
             domString += `<div class="album-content text-center col-md-12">`;
             domString += `<h2 class="album-title">${arr[i].albumName}</h2>`;
-            domString += `<h3 class="album-year mb-3">${arr[i].yearReleased}</h3>`;
+            domString += `<h3 class="album-year mb-4">${arr[i].yearReleased}</h3>`;
             domString += `<div class="album-artwork">`;
             domString += `<img class="img-fluid w-50" src="${arr[i].albumArt}" alt="picture of ${arr[i].albumName} album artwork">`;
             domString += `</div>`;
-            domString += `<div class="tracklist-container mt-3">`;
+            domString += `<div class="tracklist-container mt-4">`;
             domString += `<div class="row">`;
             domString += `<div class="tracks-left col-md-2 ml-auto">`;
             domString += `<p>1. ${arr[i].tracklist[0]}</p>`;
@@ -237,11 +237,11 @@ const albumBuilder = (arr) => {
             domString += `<div class="row carousel-item container-fluid">`;
             domString += `<div class="album-content text-center col-md-12">`;
             domString += `<h2 class="album-title">${arr[i].albumName}</h2>`;
-            domString += `<h3 class="album-year mb-3">${arr[i].yearReleased}</h3>`;
+            domString += `<h3 class="album-year mb-4">${arr[i].yearReleased}</h3>`;
             domString += `<div class="album-artwork">`;
             domString += `<img class="img-fluid w-50" src="${arr[i].albumArt}" alt="picture of ${arr[i].albumName} album artwork">`;
             domString += `</div>`;
-            domString += `<div class="tracklist-container mt-3">`;
+            domString += `<div class="tracklist-container mt-4">`;
             domString += `<div class="row">`;
             domString += `<div class="tracks-left col-md-2 ml-auto">`;
             domString += `<p>1. ${arr[i].tracklist[0]}</p>`;
@@ -288,7 +288,7 @@ const merchBuilder = (arr) => {
     let domString = '';
     for (let i = 0; i < arr.length; i++) {
         if (arr[i].isAvailable === '   Yes') {
-            domString += `<div class="card bg-dark col-3 pt-4 pb-4 m-1 rounded-0" style="width: 18rem;">`
+            domString += `<div class="card bg-dark pt-4 pb-4 m-1 rounded-0 col-lg-3" style="width: 18rem;">`
             domString += `<img src="${arr[i].imageURL}" class="card-img-top" alt="${arr[i].item}">`
             domString += `<div class="card-body"></div>`
             domString += `<h5 class="card-title">${arr[i].item}</h5>`
@@ -296,18 +296,53 @@ const merchBuilder = (arr) => {
             domString += `<p>In Stock: <span class="text-success">${arr[i].isAvailable}</span></p>`
             domString += `</div>`;
         } else {
-            domString += `<div class="card bg-dark col-3 pt-4 pb-4 m-1 rounded-0" style="width: 18rem;">`
+            domString += `<div class="card bg-dark pt-4 pb-4 m-1 rounded-0 col-lg-3" style="width: 18rem;">`
             domString += `<img src="${arr[i].imageURL}" class="card-img-top" alt="${arr[i].item}">`
             domString += `<div class="card-body"></div>`
             domString += `<h5 class="card-title">${arr[i].item}</h5>`
             domString += `<p>$${arr[i].price}</p>`
             domString += `<p class="mb-5">In Stock: <span class="text-danger">${arr[i].isAvailable}</span></p>`
-            domString += `<a href="#" class="btn btn-warning font-weight-bold text-dark">Let me know when they are back!</a>`
+            domString += `<a class="btn btn-warning font-weight-bold text-dark rounded-0 emailMe">Let me know when they are back!</a>` 
             domString += `</div>`;
 
         }
     }
     printToDom("merch-card", domString);
+    addEmailMe();
+}
+
+// adds event listener to merch "let me know when they are back" button
+const addEmailMe = () => {
+    let emailButtons = document.getElementsByClassName('emailMe');
+    for (let i = 0; i < emailButtons.length; i++) {
+        emailButtons[i].addEventListener('click', emailForm);
+    }
+}
+
+// function that adds email form to unavailable merch
+const emailForm = () => {
+    let domString = '';
+        domString += '<form class="text-center">'
+        domString += '<div class="form-group">'
+        domString += '<label for="exampleInputEmail1">Enter your email address and we will let you know when they are back</label>'
+        domString += '<input type="email" class="form-control" id="exampleInputEmail1" placeholder="Your Email" aria-describedby="emailHelp">'
+        domString += '</div>'
+        domString += '<div class="form-group">'
+        domString += '<label for="itemWanted">What merch item do you want that is out of stock?</label>'
+        domString += '<input type="item" class="form-control" id="itemWanted1" placeholder="Type item name here" aria-describedby="emailHelp">'
+        domString += '</div>'
+        domString += '<button id="emailSubmit" class="btn btn-primary">Submit</button>'
+        domString += '</form>'
+        printToDom('merch-card', domString);
+        document.getElementById('emailSubmit').addEventListener('click', emailSuccess);
+}
+
+// function that alerts success after submission
+const emailSuccess = (e) => {
+    e.preventDefault();
+    let domString = '';
+        domString += '<div class="alert alert-success" role="alert">We will let you know when more awesome Viking Merch is back in stock!</div>'
+    printToDom('merch-card', domString);
 }
 
 //function that creates tickets id's-SZ
@@ -329,10 +364,9 @@ const ticketButtonEvents = (arr) => {
 //Alert that is called when you click the tickets button-SZ
 const purchaseTickets = (e) => {
     let ticketId = e.target.id;
-
-    if (e.target.id === '18') {
+    if (concerts[ticketId].Location === 'Moon') {
         alert(`Congrats! You bought your tickets for the ${concerts[ticketId].Venue} showing located on the ${concerts[ticketId].Location} on ${concerts[ticketId].Date}.`);
-    } else if (e.target.id === '19') {
+    } else if (concerts[ticketId].Location === 'Mars') {
         alert(`Congrats! You bought your tickets for the ${concerts[ticketId].Venue} showing located on ${concerts[ticketId].Location} on ${concerts[ticketId].Date}.`);
     } else {
         alert(`Congrats! You bought your tickets for the ${concerts[ticketId].Venue} showing located in ${concerts[ticketId].Location} on ${concerts[ticketId].Date}.`);
@@ -343,15 +377,19 @@ vikingBuilder = () => {
     let domString = "";
 
     for (let i = 0; i < vikings.length; i++) {
-        domString += `<div class="card col-sm-4 text-secondary m-2 mb-5" style="width: 18rem;">`;
-        domString += `<img src="${vikings[i].image}" class="card-img-top" alt="a picture of ${vikings[i].name}"></img>`
-        domString += `<div class="card-body">`;
-        domString += `<h2 class="card-title text-center">${vikings[i].name}</h2>`;
-        domString += `<h2 class="text-center">${vikings[i].instrument}</h2>`;
-        domString += `<q class="text-center font-italic">${vikings[i].qoute}</q>`;
+
+        domString += `<div class="col-md-6">`
+        domString +=    `<div class="bandCards card text-secondary mb-5 ml-auto mr-auto">`;
+        domString +=        `<img src="${vikings[i].image}" class="card-img-top img-fluid rounded" alt="a picture of ${vikings[i].name}"></img>`
+        domString +=            `<div class="card-body">`;
+        domString +=                `<h2 class="card-title text-center">${vikings[i].name}</h2>`;
+        domString +=                `<h2 class="text-center">${vikings[i].instrument}</h2>`;
+        domString +=                `<q class="text-center font-italic">${vikings[i].qoute}</q>`;
+        domString +=            `</div>`;
+        domString +=    `</div>`;
+
         domString += `</div>`;
-        domString += `</div>`;
-    }
+    }   
     printToDom("band-members", domString)
 }
 
