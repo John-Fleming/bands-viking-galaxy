@@ -47,3 +47,7 @@ body {
 .album-artwork img {
     max-height: 545px;
 }
+
+.bandCards {
+    max-width: 18rem;
+}

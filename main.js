@@ -192,7 +192,7 @@ const vikings = [{
         image: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcS8xrGiagZXkmUwSNKGdgfU21c5Pz8uLO0x_thZEqc1qkWalXgA&s",
         name: "Justin Zych",
         instrument: "Guitar",
-        qoute: "In the end I had to use a nuclear fusion-powered device I contructed out of Titanium in order to deal with the epicness contained within these 10 tracks."
+        qoute: "In the end I had to use a nuclear fusion-powered device I contructed out of titanium to deal with the epicness."
     },
 ]
 
@@ -342,15 +342,19 @@ vikingBuilder = () => {
     let domString = "";
 
     for (let i = 0; i < vikings.length; i++) {
-        domString += `<div class="card col-sm-4 text-secondary m-2 mb-5" style="width: 18rem;">`;
-        domString += `<img src="${vikings[i].image}" class="card-img-top" alt="a picture of ${vikings[i].name}"></img>`
-        domString += `<div class="card-body">`;
-        domString += `<h2 class="card-title text-center">${vikings[i].name}</h2>`;
-        domString += `<h2 class="text-center">${vikings[i].instrument}</h2>`;
-        domString += `<q class="text-center font-italic">${vikings[i].qoute}</q>`;
+
+        domString += `<div class="col-md-6">`
+        domString +=    `<div class="bandCards card text-secondary mb-5 ml-auto mr-auto">`;
+        domString +=        `<img src="${vikings[i].image}" class="card-img-top img-fluid rounded" alt="a picture of ${vikings[i].name}"></img>`
+        domString +=            `<div class="card-body">`;
+        domString +=                `<h2 class="card-title text-center">${vikings[i].name}</h2>`;
+        domString +=                `<h2 class="text-center">${vikings[i].instrument}</h2>`;
+        domString +=                `<q class="text-center font-italic">${vikings[i].qoute}</q>`;
+        domString +=            `</div>`;
+        domString +=    `</div>`;
+
         domString += `</div>`;
-        domString += `</div>`;
-    }
+    }   
     printToDom("band-members", domString)
 }
 
