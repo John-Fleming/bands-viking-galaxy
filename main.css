@@ -56,10 +56,17 @@ body {
 
 .bandCards {
     max-width: 18rem;
+    height: 100%;
 }
 
 /* Discography Page */
 
 .album-artwork img {
   max-height: 545px;
+}
+
+/* Tour */
+
+.tour-table th {
+    font-size: 1.5rem;
 }
