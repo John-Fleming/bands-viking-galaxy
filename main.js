@@ -201,7 +201,28 @@ const printToDom = (divId, textToPrint) => {
     selectedDiv.innerHTML = textToPrint;
 };
 
+// Function to push band members to About page
+vikingBuilder = () => {
+    let domString = "";
 
+    for (let i = 0; i < vikings.length; i++) {
+
+        domString += `<div class="col-xl-3 col-lg-6 col-md-6 mb-5">`
+        domString +=    `<div class="bandCards card text-secondary ml-auto mr-auto">`;
+        domString +=        `<img src="${vikings[i].image}" class="card-img-top img-fluid rounded" alt="a picture of ${vikings[i].name}"></img>`
+        domString +=            `<div class="card-body">`;
+        domString +=                `<h3 class="card-title text-center">${vikings[i].name}</h3>`;
+        domString +=                `<h4 class="text-center">${vikings[i].instrument}</h4>`;
+        domString +=                `<q class="text-center font-italic">${vikings[i].qoute}</q>`;
+        domString +=            `</div>`;
+        domString +=    `</div>`;
+
+        domString += `</div>`;
+    }   
+    printToDom("band-members", domString)
+}
+
+// function to push albums to Discography page - includes carousel functionality
 const albumBuilder = (arr) => {
     let domString = '';
     for (let i = 0; i < arr.length; i++) {
@@ -266,7 +287,7 @@ const albumBuilder = (arr) => {
     printToDom('albums', domString);
 }
 
-
+// function to push tour dates to Tour page - includes Bootstrap table 
 const concertBuilder = (arr) => {
     let domString = '';
     ticketIdCreator();
@@ -288,19 +309,19 @@ const merchBuilder = (arr) => {
     let domString = '';
     for (let i = 0; i < arr.length; i++) {
         if (arr[i].isAvailable === '   Yes') {
-            domString += `<div class="card bg-dark pt-4 pb-4 m-1 rounded-0 col-lg-3" style="width: 18rem;">`
+            domString += `<div class="card bg-dark pt-4 pb-4 m-3 rounded-0 col-lg-3 text-center" style="width: 18rem;">`
             domString += `<img src="${arr[i].imageURL}" class="card-img-top" alt="${arr[i].item}">`
             domString += `<div class="card-body"></div>`
-            domString += `<h5 class="card-title">${arr[i].item}</h5>`
-            domString += `<p>$${arr[i].price}</p>`
+            domString += `<h3 class="card-title">${arr[i].item}</h3>`
+            domString += `<h4>$${arr[i].price}</h4>`
             domString += `<p>In Stock: <span class="text-success">${arr[i].isAvailable}</span></p>`
             domString += `</div>`;
         } else {
-            domString += `<div class="card bg-dark pt-4 pb-4 m-1 rounded-0 col-lg-3" style="width: 18rem;">`
+            domString += `<div class="card bg-dark pt-4 pb-4 m-3 rounded-0 col-lg-3 text-center" style="width: 18rem;">`
             domString += `<img src="${arr[i].imageURL}" class="card-img-top" alt="${arr[i].item}">`
             domString += `<div class="card-body"></div>`
-            domString += `<h5 class="card-title">${arr[i].item}</h5>`
-            domString += `<p>$${arr[i].price}</p>`
+            domString += `<h3 class="card-title">${arr[i].item}</h3>`
+            domString += `<h4>$${arr[i].price}</h4>`
             domString += `<p class="mb-5">In Stock: <span class="text-danger">${arr[i].isAvailable}</span></p>`
             domString += `<a class="btn btn-warning font-weight-bold text-dark rounded-0 emailMe">Let me know when they are back!</a>` 
             domString += `</div>`;
@@ -373,33 +394,7 @@ const purchaseTickets = (e) => {
     }
 }
 
-vikingBuilder = () => {
-    let domString = "";
-
-    for (let i = 0; i < vikings.length; i++) {
-
-        domString += `<div class="col-md-6">`
-        domString +=    `<div class="bandCards card text-secondary mb-5 ml-auto mr-auto">`;
-        domString +=        `<img src="${vikings[i].image}" class="card-img-top img-fluid rounded" alt="a picture of ${vikings[i].name}"></img>`
-        domString +=            `<div class="card-body">`;
-        domString +=                `<h2 class="card-title text-center">${vikings[i].name}</h2>`;
-        domString +=                `<h2 class="text-center">${vikings[i].instrument}</h2>`;
-        domString +=                `<q class="text-center font-italic">${vikings[i].qoute}</q>`;
-        domString +=            `</div>`;
-        domString +=    `</div>`;
-
-        domString += `</div>`;
-    }   
-    printToDom("band-members", domString)
-}
-
-
-const events = () => {
-
-}
-
 const init = () => {
-    events();
     if (window.location.pathname === '/discography.html') {
         albumBuilder(discography);
     } else if (window.location.pathname === '/tour.html') {
