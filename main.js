@@ -288,7 +288,7 @@ const merchBuilder = (arr) => {
     let domString = '';
     for (let i = 0; i < arr.length; i++) {
         if (arr[i].isAvailable === '   Yes') {
-            domString += `<div class="card bg-dark col-3 pt-4 pb-4 m-1 rounded-0" style="width: 18rem;">`
+            domString += `<div class="card bg-dark pt-4 pb-4 m-1 rounded-0 col-lg-3" style="width: 18rem;">`
             domString += `<img src="${arr[i].imageURL}" class="card-img-top" alt="${arr[i].item}">`
             domString += `<div class="card-body"></div>`
             domString += `<h5 class="card-title">${arr[i].item}</h5>`
@@ -296,18 +296,53 @@ const merchBuilder = (arr) => {
             domString += `<p>In Stock: <span class="text-success">${arr[i].isAvailable}</span></p>`
             domString += `</div>`;
         } else {
-            domString += `<div class="card bg-dark col-3 pt-4 pb-4 m-1 rounded-0" style="width: 18rem;">`
+            domString += `<div class="card bg-dark pt-4 pb-4 m-1 rounded-0 col-lg-3" style="width: 18rem;">`
             domString += `<img src="${arr[i].imageURL}" class="card-img-top" alt="${arr[i].item}">`
             domString += `<div class="card-body"></div>`
             domString += `<h5 class="card-title">${arr[i].item}</h5>`
             domString += `<p>$${arr[i].price}</p>`
             domString += `<p class="mb-5">In Stock: <span class="text-danger">${arr[i].isAvailable}</span></p>`
-            domString += `<a href="#" class="btn btn-warning font-weight-bold text-dark">Let me know when they are back!</a>`
+            domString += `<a class="btn btn-warning font-weight-bold text-dark rounded-0 emailMe">Let me know when they are back!</a>` 
             domString += `</div>`;
 
         }
     }
     printToDom("merch-card", domString);
+    addEmailMe();
+}
+
+// adds event listener to merch "let me know when they are back" button
+const addEmailMe = () => {
+    let emailButtons = document.getElementsByClassName('emailMe');
+    for (let i = 0; i < emailButtons.length; i++) {
+        emailButtons[i].addEventListener('click', emailForm);
+    }
+}
+
+// function that adds email form to unavailable merch
+const emailForm = () => {
+    let domString = '';
+        domString += '<form class="text-center">'
+        domString += '<div class="form-group">'
+        domString += '<label for="exampleInputEmail1">Enter your email address and we will let you know when they are back</label>'
+        domString += '<input type="email" class="form-control" id="exampleInputEmail1" placeholder="Your Email" aria-describedby="emailHelp">'
+        domString += '</div>'
+        domString += '<div class="form-group">'
+        domString += '<label for="itemWanted">What merch item do you want that is out of stock?</label>'
+        domString += '<input type="item" class="form-control" id="itemWanted1" placeholder="Type item name here" aria-describedby="emailHelp">'
+        domString += '</div>'
+        domString += '<button id="emailSubmit" class="btn btn-primary">Submit</button>'
+        domString += '</form>'
+        printToDom('merch-card', domString);
+        document.getElementById('emailSubmit').addEventListener('click', emailSuccess);
+}
+
+// function that alerts success after submission
+const emailSuccess = (e) => {
+    e.preventDefault();
+    let domString = '';
+        domString += '<div class="alert alert-success" role="alert">We will let you know when more awesome Viking Merch is back in stock!</div>'
+    printToDom('merch-card', domString);
 }
 
 //function that creates tickets id's-SZ
