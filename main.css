@@ -42,6 +42,12 @@ body {
     height: auto;
 }
 
+/* About Page */
+
+.bandCards {
+    max-width: 18rem;
+}
+
 /* Discography Page */
 
 .album-artwork img {
