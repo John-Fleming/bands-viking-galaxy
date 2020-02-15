@@ -329,10 +329,9 @@ const ticketButtonEvents = (arr) => {
 //Alert that is called when you click the tickets button-SZ
 const purchaseTickets = (e) => {
     let ticketId = e.target.id;
-
-    if (e.target.id === '18') {
+    if (concerts[ticketId].Location === 'Moon') {
         alert(`Congrats! You bought your tickets for the ${concerts[ticketId].Venue} showing located on the ${concerts[ticketId].Location} on ${concerts[ticketId].Date}.`);
-    } else if (e.target.id === '19') {
+    } else if (concerts[ticketId].Location === 'Mars') {
         alert(`Congrats! You bought your tickets for the ${concerts[ticketId].Venue} showing located on ${concerts[ticketId].Location} on ${concerts[ticketId].Date}.`);
     } else {
         alert(`Congrats! You bought your tickets for the ${concerts[ticketId].Venue} showing located in ${concerts[ticketId].Location} on ${concerts[ticketId].Date}.`);
