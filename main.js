@@ -126,51 +126,50 @@ const concerts = [{
     },
 ]
 
-const vikingMerch = [
-    {
-      imageURL: "./assets/Viking Galaxy Hat.png",
-      item: "Viking Galaxy Hat",
-      price: 25.99,
-      isAvailable: '   Yes'
+const vikingMerch = [{
+        imageURL: "./assets/Viking Galaxy Hat.png",
+        item: "Viking Galaxy Hat",
+        price: 25.99,
+        isAvailable: '   Yes'
     },
     {
-      imageURL: "./assets/vg-shirt.png",
-      item: "Viking Galaxy Shirt",
-      price: 10.99,
-      isAvailable: '   Yes'
+        imageURL: "./assets/vg-shirt.png",
+        item: "Viking Galaxy Shirt",
+        price: 10.99,
+        isAvailable: '   Yes'
     },
     {
-      imageURL: "./assets/Viking Galaxy Sticker.png",
-      item: "Viking Galaxy Sticker Pack",
-      price: 12.99,
-      isAvailable:  '   Yes'
+        imageURL: "./assets/Viking Galaxy Sticker.png",
+        item: "Viking Galaxy Sticker Pack",
+        price: 12.99,
+        isAvailable: '   Yes'
     },
     {
-      imageURL: "./assets/Poster.png",
-      item: "Viking Galaxy Poster",
-      price: 8.99,
-      isAvailable: '   More on the way'
+        imageURL: "./assets/Poster.png",
+        item: "Viking Galaxy Poster",
+        price: 8.99,
+        isAvailable: '   More on the way'
     },
     {
-      imageURL: "./assets/Coffee Mug.png",
-      item: "Viking Galaxy Coffee Mug",
-      price: 11.99,
-      isAvailable: '   More on the way'
+        imageURL: "./assets/Coffee Mug.png",
+        item: "Viking Galaxy Coffee Mug",
+        price: 11.99,
+        isAvailable: '   More on the way'
     },
     {
-      imageURL: "./assets/Tote.png",
-      item: "Viking Galaxy Tote Bag",
-      price: 5.99,
-      isAvailable: '   Yes'
+        imageURL: "./assets/Tote.png",
+        item: "Viking Galaxy Tote Bag",
+        price: 5.99,
+        isAvailable: '   Yes'
     },
     {
-      imageURL: "./assets/Hoodie.png",
-      item: "Viking Galaxy Hoodie",
-      price: 45.99,
-      isAvailable: '   Yes'
+        imageURL: "./assets/Hoodie.png",
+        item: "Viking Galaxy Hoodie",
+        price: 45.99,
+        isAvailable: '   Yes'
     }
-  ];
-  
+];
+
 const vikings = [{
         image: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSWhZ4DGyHhSC67jyT_EcUe9JU72y7EKLYQZsGdJqLm8yvj7Npfeg&s",
         name: "Ron Eriksen",
@@ -208,59 +207,59 @@ const albumBuilder = (arr) => {
     for (let i = 0; i < arr.length; i++) {
         if (arr[i] === arr[0]) {
             domString += `<div class="row carousel-item container-fluid active">`;
-            domString +=    `<div class="album-content text-center col-md-12">`;
-            domString +=        `<h2 class="album-title">${arr[i].albumName}</h2>`;
-            domString +=        `<h3 class="album-year mb-3">${arr[i].yearReleased}</h3>`;
-            domString +=        `<div class="album-artwork">`;
-            domString +=            `<img class="img-fluid w-50" src="${arr[i].albumArt}" alt="picture of ${arr[i].albumName} album artwork">`;
-            domString +=        `</div>`;
-            domString +=        `<div class="tracklist-container mt-3">`;
-            domString +=            `<div class="row">`;
-            domString +=                `<div class="tracks-left col-md-2 ml-auto">`;
-            domString +=                    `<p>1. ${arr[i].tracklist[0]}</p>`;
-            domString +=                    `<p>2. ${arr[i].tracklist[1]}</p>`;
-            domString +=                    `<p>3. ${arr[i].tracklist[2]}</p>`;
-            domString +=                    `<p>4. ${arr[i].tracklist[3]}</p>`;
-            domString +=                    `<p>5. ${arr[i].tracklist[4]}</p>`;
-            domString +=                `</div>`;
-            domString +=                `<div class="tracks-right col-md-2 mr-auto">`;
-            domString +=                    `<p>6. ${arr[i].tracklist[5]}</p>`;
-            domString +=                    `<p>7. ${arr[i].tracklist[6]}</p>`;
-            domString +=                    `<p>8. ${arr[i].tracklist[7]}</p>`;
-            domString +=                    `<p>9. ${arr[i].tracklist[8]}</p>`;
-            domString +=                    `<p>10. ${arr[i].tracklist[9]}</p>`;
-            domString +=                `</div>`;
-            domString +=            `</div>`;
-            domString +=        `</div>`;
-            domString +=   `</div>`;
+            domString += `<div class="album-content text-center col-md-12">`;
+            domString += `<h2 class="album-title">${arr[i].albumName}</h2>`;
+            domString += `<h3 class="album-year mb-3">${arr[i].yearReleased}</h3>`;
+            domString += `<div class="album-artwork">`;
+            domString += `<img class="img-fluid w-50" src="${arr[i].albumArt}" alt="picture of ${arr[i].albumName} album artwork">`;
+            domString += `</div>`;
+            domString += `<div class="tracklist-container mt-3">`;
+            domString += `<div class="row">`;
+            domString += `<div class="tracks-left col-md-2 ml-auto">`;
+            domString += `<p>1. ${arr[i].tracklist[0]}</p>`;
+            domString += `<p>2. ${arr[i].tracklist[1]}</p>`;
+            domString += `<p>3. ${arr[i].tracklist[2]}</p>`;
+            domString += `<p>4. ${arr[i].tracklist[3]}</p>`;
+            domString += `<p>5. ${arr[i].tracklist[4]}</p>`;
+            domString += `</div>`;
+            domString += `<div class="tracks-right col-md-2 mr-auto">`;
+            domString += `<p>6. ${arr[i].tracklist[5]}</p>`;
+            domString += `<p>7. ${arr[i].tracklist[6]}</p>`;
+            domString += `<p>8. ${arr[i].tracklist[7]}</p>`;
+            domString += `<p>9. ${arr[i].tracklist[8]}</p>`;
+            domString += `<p>10. ${arr[i].tracklist[9]}</p>`;
+            domString += `</div>`;
+            domString += `</div>`;
+            domString += `</div>`;
+            domString += `</div>`;
             domString += `</div>`;
         } else {
             domString += `<div class="row carousel-item container-fluid">`;
-            domString +=    `<div class="album-content text-center col-md-12">`;
-            domString +=        `<h2 class="album-title">${arr[i].albumName}</h2>`;
-            domString +=        `<h3 class="album-year mb-3">${arr[i].yearReleased}</h3>`;
-            domString +=        `<div class="album-artwork">`;
-            domString +=            `<img class="img-fluid w-50" src="${arr[i].albumArt}" alt="picture of ${arr[i].albumName} album artwork">`;
-            domString +=        `</div>`;
-            domString +=        `<div class="tracklist-container mt-3">`;
-            domString +=            `<div class="row">`;
-            domString +=                `<div class="tracks-left col-md-2 ml-auto">`;
-            domString +=                    `<p>1. ${arr[i].tracklist[0]}</p>`;
-            domString +=                    `<p>2. ${arr[i].tracklist[1]}</p>`;
-            domString +=                    `<p>3. ${arr[i].tracklist[2]}</p>`;
-            domString +=                    `<p>4. ${arr[i].tracklist[3]}</p>`;
-            domString +=                    `<p>5. ${arr[i].tracklist[4]}</p>`;
-            domString +=                `</div>`;
-            domString +=                `<div class="tracks-right col-md-2 mr-auto">`;
-            domString +=                    `<p>6. ${arr[i].tracklist[5]}</p>`;
-            domString +=                    `<p>7. ${arr[i].tracklist[6]}</p>`;
-            domString +=                    `<p>8. ${arr[i].tracklist[7]}</p>`;
-            domString +=                    `<p>9. ${arr[i].tracklist[8]}</p>`;
-            domString +=                    `<p>10. ${arr[i].tracklist[9]}</p>`;
-            domString +=                `</div>`;
-            domString +=            `</div>`;
-            domString +=        `</div>`;
-            domString +=   `</div>`;
+            domString += `<div class="album-content text-center col-md-12">`;
+            domString += `<h2 class="album-title">${arr[i].albumName}</h2>`;
+            domString += `<h3 class="album-year mb-3">${arr[i].yearReleased}</h3>`;
+            domString += `<div class="album-artwork">`;
+            domString += `<img class="img-fluid w-50" src="${arr[i].albumArt}" alt="picture of ${arr[i].albumName} album artwork">`;
+            domString += `</div>`;
+            domString += `<div class="tracklist-container mt-3">`;
+            domString += `<div class="row">`;
+            domString += `<div class="tracks-left col-md-2 ml-auto">`;
+            domString += `<p>1. ${arr[i].tracklist[0]}</p>`;
+            domString += `<p>2. ${arr[i].tracklist[1]}</p>`;
+            domString += `<p>3. ${arr[i].tracklist[2]}</p>`;
+            domString += `<p>4. ${arr[i].tracklist[3]}</p>`;
+            domString += `<p>5. ${arr[i].tracklist[4]}</p>`;
+            domString += `</div>`;
+            domString += `<div class="tracks-right col-md-2 mr-auto">`;
+            domString += `<p>6. ${arr[i].tracklist[5]}</p>`;
+            domString += `<p>7. ${arr[i].tracklist[6]}</p>`;
+            domString += `<p>8. ${arr[i].tracklist[7]}</p>`;
+            domString += `<p>9. ${arr[i].tracklist[8]}</p>`;
+            domString += `<p>10. ${arr[i].tracklist[9]}</p>`;
+            domString += `</div>`;
+            domString += `</div>`;
+            domString += `</div>`;
+            domString += `</div>`;
             domString += `</div>`;
         };
     }
@@ -303,7 +302,7 @@ const merchBuilder = (arr) => {
             domString += `<h5 class="card-title">${arr[i].item}</h5>`
             domString += `<p>$${arr[i].price}</p>`
             domString += `<p class="mb-5">In Stock: <span class="text-danger">${arr[i].isAvailable}</span></p>`
-            domString += `<a href="#" class="btn btn-warning font-weight-bold text-dark">Let me know when they are back!</a>` 
+            domString += `<a href="#" class="btn btn-warning font-weight-bold text-dark">Let me know when they are back!</a>`
             domString += `</div>`;
 
         }
@@ -327,16 +326,23 @@ const ticketButtonEvents = (arr) => {
     }
 }
 
-//Alert that is called when you click the ticket button-SZ
+//Alert that is called when you click the tickets button-SZ
 const purchaseTickets = (e) => {
     let ticketId = e.target.id;
-    alert(`Congrats! You bought your tickets for the ${concerts[ticketId].Venue} showing located in ${concerts[ticketId].Location} on ${concerts[ticketId].Date}.`);
+    if (concerts[ticketId].Location === 'Moon') {
+        alert(`Congrats! You bought your tickets for the ${concerts[ticketId].Venue} showing located on the ${concerts[ticketId].Location} on ${concerts[ticketId].Date}.`);
+    } else if (concerts[ticketId].Location === 'Mars') {
+        alert(`Congrats! You bought your tickets for the ${concerts[ticketId].Venue} showing located on ${concerts[ticketId].Location} on ${concerts[ticketId].Date}.`);
+    } else {
+        alert(`Congrats! You bought your tickets for the ${concerts[ticketId].Venue} showing located in ${concerts[ticketId].Location} on ${concerts[ticketId].Date}.`);
+    }
 }
 
 vikingBuilder = () => {
     let domString = "";
 
     for (let i = 0; i < vikings.length; i++) {
+
         domString += `<div class="col-md-6">`
         domString +=    `<div class="bandCards card text-secondary mb-5 ml-auto mr-auto">`;
         domString +=        `<img src="${vikings[i].image}" class="card-img-top img-fluid rounded" alt="a picture of ${vikings[i].name}"></img>`
@@ -346,6 +352,7 @@ vikingBuilder = () => {
         domString +=                `<q class="text-center font-italic">${vikings[i].qoute}</q>`;
         domString +=            `</div>`;
         domString +=    `</div>`;
+
         domString += `</div>`;
     }   
     printToDom("band-members", domString)
