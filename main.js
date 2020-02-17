@@ -208,9 +208,9 @@ vikingBuilder = () => {
     for (let i = 0; i < vikings.length; i++) {
 
         domString += `<div class="col-xl-3 col-lg-6 col-md-6 mb-5">`
-        domString +=    `<div class="bandCards card text-secondary ml-auto mr-auto">`;
+        domString +=    `<div class="bandCards card ml-auto mr-auto rounded-0">`;
         domString +=        `<img src="${vikings[i].image}" class="card-img-top img-fluid rounded" alt="a picture of ${vikings[i].name}"></img>`
-        domString +=            `<div class="card-body">`;
+        domString +=            `<div class="card-body bg-dark">`;
         domString +=                `<h3 class="card-title text-center">${vikings[i].name}</h3>`;
         domString +=                `<h4 class="text-center">${vikings[i].instrument}</h4>`;
         domString +=                `<q class="text-center font-italic">${vikings[i].qoute}</q>`;
@@ -304,6 +304,35 @@ const concertBuilder = (arr) => {
     ticketButtonEvents(arr);
 }
 
+
+//function that creates tickets id's-SZ
+const ticketIdCreator = () => {
+    for (let i = 0; i < concerts.length; i++) {
+        concerts[i].Id = i.toString();
+    }
+    return concerts;
+}
+
+//functions that creates addeventlisteners for each ticket button id-SZ
+const ticketButtonEvents = (arr) => {
+    for (let i = 0; i < arr.length; i++) {
+
+        document.getElementById(arr[i].Id).addEventListener('click', purchaseTickets);
+    }
+}
+
+//Alert that is called when you click the tickets button-SZ
+const purchaseTickets = (e) => {
+    let ticketId = e.target.id;
+    if (concerts[ticketId].Location === 'Moon') {
+        alert(`Congrats! You bought your tickets for the ${concerts[ticketId].Venue} showing located on the ${concerts[ticketId].Location} on ${concerts[ticketId].Date}.`);
+    } else if (concerts[ticketId].Location === 'Mars') {
+        alert(`Congrats! You bought your tickets for the ${concerts[ticketId].Venue} showing located on ${concerts[ticketId].Location} on ${concerts[ticketId].Date}.`);
+    } else {
+        alert(`Congrats! You bought your tickets for the ${concerts[ticketId].Venue} showing located in ${concerts[ticketId].Location} on ${concerts[ticketId].Date}.`);
+    }
+}
+
 // function that populates merch.html with bootstrap cards
 const merchBuilder = (arr) => {
     let domString = '';
@@ -345,53 +374,30 @@ const emailForm = () => {
     let domString = '';
         domString += '<form class="text-center">'
         domString += '<div class="form-group">'
-        domString += '<label for="exampleInputEmail1">Enter your email address and we will let you know when they are back</label>'
-        domString += '<input type="email" class="form-control" id="exampleInputEmail1" placeholder="Your Email" aria-describedby="emailHelp">'
+        domString += '<label for="inputEmail" class="control-label">Enter your email address and we will let you know when they are back</label>'
+        domString += '<input type="email" class="form-control" id="inputEmail" placeholder="Your Email">'
         domString += '</div>'
         domString += '<div class="form-group">'
         domString += '<label for="itemWanted">What merch item do you want that is out of stock?</label>'
-        domString += '<input type="item" class="form-control" id="itemWanted1" placeholder="Type item name here" aria-describedby="emailHelp">'
+        domString += '<input type="item" class="form-control" id="itemWanted" placeholder="Type item name here">'
         domString += '</div>'
-        domString += '<button id="emailSubmit" class="btn btn-primary">Submit</button>'
+        domString += '<div class="form-group">'
+        domString += '<button id="emailSubmit" type="submit" class="btn btn-primary">Submit</button>'
+        domString += '</div>'
         domString += '</form>'
         printToDom('merch-card', domString);
         document.getElementById('emailSubmit').addEventListener('click', emailSuccess);
 }
 
+
 // function that alerts success after submission
 const emailSuccess = (e) => {
     e.preventDefault();
     let domString = '';
-        domString += '<div class="alert alert-success" role="alert">We will let you know when more awesome Viking Merch is back in stock!</div>'
+        domString += '<div class="alert alert-success" role="alert col-12">We will let you know when more awesome Viking Merch is back in stock! '
+        domString += '<a href="./merch.html" class="stretched-link font-weight-bold text-lowercase">Continue Shopping</a>'
+        domString += '</div>'
     printToDom('merch-card', domString);
-}
-
-//function that creates tickets id's-SZ
-const ticketIdCreator = () => {
-    for (let i = 0; i < concerts.length; i++) {
-        concerts[i].Id = i.toString();
-    }
-    return concerts;
-}
-
-//functions that creates addeventlisteners for each ticket button id-SZ
-const ticketButtonEvents = (arr) => {
-    for (let i = 0; i < arr.length; i++) {
-
-        document.getElementById(arr[i].Id).addEventListener('click', purchaseTickets);
-    }
-}
-
-//Alert that is called when you click the tickets button-SZ
-const purchaseTickets = (e) => {
-    let ticketId = e.target.id;
-    if (concerts[ticketId].Location === 'Moon') {
-        alert(`Congrats! You bought your tickets for the ${concerts[ticketId].Venue} showing located on the ${concerts[ticketId].Location} on ${concerts[ticketId].Date}.`);
-    } else if (concerts[ticketId].Location === 'Mars') {
-        alert(`Congrats! You bought your tickets for the ${concerts[ticketId].Venue} showing located on ${concerts[ticketId].Location} on ${concerts[ticketId].Date}.`);
-    } else {
-        alert(`Congrats! You bought your tickets for the ${concerts[ticketId].Venue} showing located in ${concerts[ticketId].Location} on ${concerts[ticketId].Date}.`);
-    }
 }
 
 const init = () => {
