@@ -343,15 +343,14 @@ const addEmailMe = () => {
 // function that adds email form to unavailable merch
 const emailForm = () => {
     let domString = '';
-        domString += '<form role="form" data-toggle="validator" class="text-center">'
+        domString += '<form class="text-center">'
         domString += '<div class="form-group">'
         domString += '<label for="inputEmail" class="control-label">Enter your email address and we will let you know when they are back</label>'
-        domString += '<input type="email" class="form-control" id="inputEmail" placeholder="Your Email" data-error="Please enter a valid email" data-minlength="3" required>'
-        domString += '<div class="help-block with-errors"></div>'
+        domString += '<input type="email" class="form-control" id="inputEmail" placeholder="Your Email">'
         domString += '</div>'
         domString += '<div class="form-group">'
         domString += '<label for="itemWanted">What merch item do you want that is out of stock?</label>'
-        domString += '<input type="item" class="form-control" id="itemWanted" placeholder="Type item name here" data-minlength="3" required>'
+        domString += '<input type="item" class="form-control" id="itemWanted" placeholder="Type item name here">'
         domString += '</div>'
         domString += '<div class="form-group">'
         domString += '<button id="emailSubmit" type="submit" class="btn btn-primary">Submit</button>'
