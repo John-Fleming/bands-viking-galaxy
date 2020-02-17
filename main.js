@@ -304,6 +304,35 @@ const concertBuilder = (arr) => {
     ticketButtonEvents(arr);
 }
 
+
+//function that creates tickets id's-SZ
+const ticketIdCreator = () => {
+    for (let i = 0; i < concerts.length; i++) {
+        concerts[i].Id = i.toString();
+    }
+    return concerts;
+}
+
+//functions that creates addeventlisteners for each ticket button id-SZ
+const ticketButtonEvents = (arr) => {
+    for (let i = 0; i < arr.length; i++) {
+
+        document.getElementById(arr[i].Id).addEventListener('click', purchaseTickets);
+    }
+}
+
+//Alert that is called when you click the tickets button-SZ
+const purchaseTickets = (e) => {
+    let ticketId = e.target.id;
+    if (concerts[ticketId].Location === 'Moon') {
+        alert(`Congrats! You bought your tickets for the ${concerts[ticketId].Venue} showing located on the ${concerts[ticketId].Location} on ${concerts[ticketId].Date}.`);
+    } else if (concerts[ticketId].Location === 'Mars') {
+        alert(`Congrats! You bought your tickets for the ${concerts[ticketId].Venue} showing located on ${concerts[ticketId].Location} on ${concerts[ticketId].Date}.`);
+    } else {
+        alert(`Congrats! You bought your tickets for the ${concerts[ticketId].Venue} showing located in ${concerts[ticketId].Location} on ${concerts[ticketId].Date}.`);
+    }
+}
+
 // function that populates merch.html with bootstrap cards
 const merchBuilder = (arr) => {
     let domString = '';
@@ -369,34 +398,6 @@ const emailSuccess = (e) => {
         domString += '<a href="./merch.html" class="stretched-link font-weight-bold text-lowercase">Continue Shopping</a>'
         domString += '</div>'
     printToDom('merch-card', domString);
-}
-
-//function that creates tickets id's-SZ
-const ticketIdCreator = () => {
-    for (let i = 0; i < concerts.length; i++) {
-        concerts[i].Id = i.toString();
-    }
-    return concerts;
-}
-
-//functions that creates addeventlisteners for each ticket button id-SZ
-const ticketButtonEvents = (arr) => {
-    for (let i = 0; i < arr.length; i++) {
-
-        document.getElementById(arr[i].Id).addEventListener('click', purchaseTickets);
-    }
-}
-
-//Alert that is called when you click the tickets button-SZ
-const purchaseTickets = (e) => {
-    let ticketId = e.target.id;
-    if (concerts[ticketId].Location === 'Moon') {
-        alert(`Congrats! You bought your tickets for the ${concerts[ticketId].Venue} showing located on the ${concerts[ticketId].Location} on ${concerts[ticketId].Date}.`);
-    } else if (concerts[ticketId].Location === 'Mars') {
-        alert(`Congrats! You bought your tickets for the ${concerts[ticketId].Venue} showing located on ${concerts[ticketId].Location} on ${concerts[ticketId].Date}.`);
-    } else {
-        alert(`Congrats! You bought your tickets for the ${concerts[ticketId].Venue} showing located in ${concerts[ticketId].Location} on ${concerts[ticketId].Date}.`);
-    }
 }
 
 const init = () => {
