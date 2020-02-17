@@ -343,26 +343,32 @@ const addEmailMe = () => {
 // function that adds email form to unavailable merch
 const emailForm = () => {
     let domString = '';
-        domString += '<form class="text-center">'
+        domString += '<form role="form" data-toggle="validator" class="text-center">'
         domString += '<div class="form-group">'
-        domString += '<label for="exampleInputEmail1">Enter your email address and we will let you know when they are back</label>'
-        domString += '<input type="email" class="form-control" id="exampleInputEmail1" placeholder="Your Email" aria-describedby="emailHelp">'
+        domString += '<label for="inputEmail" class="control-label">Enter your email address and we will let you know when they are back</label>'
+        domString += '<input type="email" class="form-control" id="inputEmail" placeholder="Your Email" data-error="Please enter a valid email" data-minlength="3" required>'
+        domString += '<div class="help-block with-errors"></div>'
         domString += '</div>'
         domString += '<div class="form-group">'
         domString += '<label for="itemWanted">What merch item do you want that is out of stock?</label>'
-        domString += '<input type="item" class="form-control" id="itemWanted1" placeholder="Type item name here" aria-describedby="emailHelp">'
+        domString += '<input type="item" class="form-control" id="itemWanted" placeholder="Type item name here" data-minlength="3" required>'
         domString += '</div>'
-        domString += '<button id="emailSubmit" class="btn btn-primary">Submit</button>'
+        domString += '<div class="form-group">'
+        domString += '<button id="emailSubmit" type="submit" class="btn btn-primary">Submit</button>'
+        domString += '</div>'
         domString += '</form>'
         printToDom('merch-card', domString);
         document.getElementById('emailSubmit').addEventListener('click', emailSuccess);
 }
 
+
 // function that alerts success after submission
 const emailSuccess = (e) => {
     e.preventDefault();
     let domString = '';
-        domString += '<div class="alert alert-success" role="alert">We will let you know when more awesome Viking Merch is back in stock!</div>'
+        domString += '<div class="alert alert-success" role="alert col-12">We will let you know when more awesome Viking Merch is back in stock! '
+        domString += '<a href="./merch.html" class="stretched-link font-weight-bold text-lowercase">Continue Shopping</a>'
+        domString += '</div>'
     printToDom('merch-card', domString);
 }
 
